@@ -2,8 +2,5 @@
   "name": "om-test-task",
   "version": "1.0.0",
   "license": "MIT",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+  "dependencies": {}
 }
