@@ -3,25 +3,25 @@ const Form = ({ setUrl, setIsForm }) => {
   const [isError, setIsError] = React.useState(false)
 
   return (
-    <form onSubmit={handleFormSubmit} class="form" name="audio-form">
+    <form onSubmit={handleFormSubmit} className="form" name="audio-form">
       <label for="audio">Insert the link</label>
-      <div class="url-wrapper">
+      <div className="form__action">
         <input
           ref={inputRef}
           type="text"
           id="audio"
           name="audio"
           placeholder="https://"
-          class="url-input"
+          className="form__input"
           onChange={handleOnChangeInput}
         />
-        <button type="submit" class="url-button">
+        <button type="submit" className="button__form button">
           <img src="assets/submit.svg" alt="Submit url input" />
         </button>
         {isError && (
           <>
-            <span class="error-message">Email Field is Invalid</span>
-            <img src="assets/error.svg" class="error-icon" aria-hidden></img>
+            <span className="error-message">Email field is invalid</span>
+            <img src="assets/error.svg" className="error-icon" aria-hidden></img>
           </>
         )}
       </div>
@@ -78,16 +78,16 @@ const Player = ({ url, setIsForm }) => {
 
   return (
     <>
-      <button class="back-button" aria-label="Back" onClick={handleBack}>← Back</button>
+      <button className="button back-button" aria-label="Back" onClick={handleBack}>← Back</button>
       <div className="player">
         {loading && (
-          <div class="loading">
-            <div class="loading-bar">
-              <div class="loading-line"></div>
+          <div className="loading">
+            <div className="loading-bar">
+              <div className="loading-line"></div>
             </div>
           </div>
         )}
-        <button className="player__button" aria-label="Play" onClick={handlePlayPause}>
+        <button className="button player__button" aria-label="Play and pause" onClick={handlePlayPause}>
           {isPlaying && !loading ? <img src="assets/pause.svg"></img> : <img src="assets/play.svg"></img>}
         </button>
         <input
@@ -97,14 +97,14 @@ const Player = ({ url, setIsForm }) => {
           step="0.01"
           value={currentTime}
           onChange={handleSeek}
-          class="player__playback"
+          className="player__playback"
           style={{
             background: `linear-gradient(90deg, #FFFFFF ${currentTime}%, #ADACAD ${currentTime}%)`
           }}
         />
 
         <audio ref={audioRef} src={url} />
-        <div class="player__data">
+        <div className="player__data">
           <span className="player__track-duration">
             {formatDuration(currentTime)}
           </span>
@@ -115,7 +115,7 @@ const Player = ({ url, setIsForm }) => {
             step="0.01"
             value={currentVolume}
             onChange={handleVolume}
-            class="player__volume"
+            className="player__volume"
             style={{
               background: `linear-gradient(90deg, #000000 ${currentVolume * 100}%, #FFFFFF ${currentVolume * 100}%)`
             }}
