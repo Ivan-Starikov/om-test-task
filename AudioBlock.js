@@ -12,7 +12,7 @@ const Form = ({ setUrl, setIsForm }) => {
           id="audio"
           name="audio"
           placeholder="https://"
-          className="form__input"
+          className={`form__input ${isError && 'error-input'}`}
           onChange={handleOnChangeInput}
         />
         <button type="submit" className="button__form button">
@@ -20,7 +20,7 @@ const Form = ({ setUrl, setIsForm }) => {
         </button>
         {isError && (
           <>
-            <span className="error-message">Email field is invalid</span>
+            <span className="error-message">This link is invalid</span>
             <img src="assets/error.svg" className="error-icon" aria-hidden></img>
           </>
         )}
@@ -58,8 +58,9 @@ const Player = ({ url, setIsForm }) => {
   const [currentVolume, setCurrentVolume] = React.useState(0.3)
   const [duration, setDuration] = React.useState(0)
   const [loading, setLoading] = React.useState(true);
-
   const audioRef = React.useRef(null)
+
+  const durationProportion = currentTime * 100 / duration
 
   React.useEffect(() => {
     audioRef.current?.addEventListener("timeupdate", handleTimeUpdate);
@@ -73,6 +74,7 @@ const Player = ({ url, setIsForm }) => {
 
   React.useEffect(() => {
     setDuration(audioRef.current.duration);
+
     audioRef.current.volume = currentVolume
   }, [])
 
@@ -99,13 +101,13 @@ const Player = ({ url, setIsForm }) => {
           onChange={handleSeek}
           className="player__playback"
           style={{
-            background: `linear-gradient(90deg, #FFFFFF ${currentTime}%, #ADACAD ${currentTime}%)`
+            background: `linear-gradient(90deg, #FFFFFF ${durationProportion}%, #ADACAD ${durationProportion}%)`
           }}
         />
 
-        <audio ref={audioRef} src={url} />
+        <audio ref={audioRef} src={url} onLoadedMetadata={onLoadedMetadata} loop />
         <div className="player__data">
-          <span className="player__track-duration">
+          <span className="player__duration">
             {formatDuration(currentTime)}
           </span>
           <input
@@ -162,6 +164,12 @@ const Player = ({ url, setIsForm }) => {
 
   function handleBack() {
     setIsForm(true)
+  }
+
+  function onLoadedMetadata() {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration)
+    }
   }
 }
 
