@@ -74,7 +74,6 @@ const Player = ({ url, setIsForm }) => {
 
   React.useEffect(() => {
     setDuration(audioRef.current.duration);
-
     audioRef.current.volume = currentVolume
   }, [])
 
@@ -101,7 +100,7 @@ const Player = ({ url, setIsForm }) => {
           onChange={handleSeek}
           className="player__playback"
           style={{
-            background: `linear-gradient(90deg, #FFFFFF ${durationProportion}%, #ADACAD ${durationProportion}%)`
+            background: !loading ? `linear-gradient(90deg, #FFFFFF ${durationProportion}%, #ADACAD ${durationProportion}%)` : '#ADACAD'
           }}
         />
 

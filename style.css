@@ -527,7 +527,6 @@ input[type="range"].player__volume::-webkit-slider-thumb {
 
 /* firefox */
 input[type="range"]::-moz-range-track {
-  background: #ADACAD;
   height: 2px;
 }
 
@@ -546,7 +545,7 @@ input[type="range"].player__playback::-moz-range-thumb {
 }
 
 input[type="range"].player__volume::-moz-range-thumb {
-  background: var(--black);;
+  background: var(--black);
   border-radius: 0;
 }
 
