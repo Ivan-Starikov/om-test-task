@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Any audio</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section class="main__section">
@@ -16,27 +18,36 @@
         <div class="main__wrapper">
           <div class="main__content">
             <div class="main__info">
-              <h1 class="main__title">Play any audio sources directly in the browser!</h1>
+              <h1 class="main__title">
+                Play any audio sources directly in the browser!
+              </h1>
               <div class="desktop">
-                <span class="main__subtitle">Without any restrictions for free</span>
+                <span class="main__subtitle"
+                  >Without any restrictions for free</span
+                >
               </div>
             </div>
             <div class="desktop">
               <span class="main__conditions">
-              By uploading the audio file, you agree to our <span class="main__terms">Terms of Service.</span>
+                By uploading the audio file, you agree to our
+                <span class="main__terms">Terms of Service.</span>
               </span>
             </div>
           </div>
           <div class="form__wrapper">
-            <div id="audio-block"></div>
+            <div id="audio"></div>
           </div>
           <div class="mobile">
             <div class="main__info">
-              <span class="main__subtitle">Without any restrictions for free</span>
+              <span class="main__subtitle"
+                >Without any restrictions for free</span
+              >
             </div>
             <span class="main__conditions">
-            <span class="main__agreements">By uploading the audio file, you agree to our</span>
-            <span class="main__terms">Terms of Service.</span>
+              <span class="main__agreements"
+                >By uploading the audio file, you agree to our</span
+              >
+              <span class="main__terms">Terms of Service.</span>
             </span>
           </div>
         </div>
@@ -47,18 +58,24 @@
         <div class="how__wrapper">
           <div class="how__info">
             <h2 class="how__title">How it Works</h2>
-            <p class="how__content">Lorem Ipsum is a "fish" text often used in print and web design. Lorem Ipsum has been the standard "fish" for Latin texts since the early 16th century. At that time, an unnamed printer created a large collection of font sizes and shapes, using Lorem Ipsum for print samples.</p>
+            <p class="how__content">
+              Lorem Ipsum is a "fish" text often used in print and web design.
+              Lorem Ipsum has been the standard "fish" for Latin texts since the
+              early 16th century. At that time, an unnamed printer created a
+              large collection of font sizes and shapes, using Lorem Ipsum for
+              print samples.
+            </p>
           </div>
           <div class="scheme">
             <div class="scheme__lines"></div>
             <div class="scheme__horisontal-line"></div>
-            <div class="block__yellow"></div>
-            <div class="blocks">
-              <div class="block__gray block__gray--first">
-                <img src="assets/aws.svg" alt="Aws image">
+            <div class="scheme__block--yellow"></div>
+            <div class="scheme__blocks">
+              <div class="scheme__block--gray scheme__block--gray-first">
+                <img id="awsImg" alt="Aws image" />
               </div>
-              <div class="block__gray">
-                <img src="assets/cloud.svg" alt="Cloud image">
+              <div class="scheme__block--gray">
+                <img id="cloudImg" alt="Cloud image" />
               </div>
             </div>
           </div>
@@ -69,7 +86,13 @@
       <div class="container">
         <span class="tech__title">Technical requirements</span>
         <div class="tabs">
-          <input type="radio" class="tabs__radio" name="tabs-group" id="tab1" checked>
+          <input
+            type="radio"
+            class="tabs__radio"
+            name="tabs-group"
+            id="tab1"
+            checked
+          />
           <label for="tab1" class="tabs__label">Own server</label>
           <div class="tabs__content">
             <table>
@@ -99,7 +122,7 @@
               </tbody>
             </table>
           </div>
-          <input type="radio" class="tabs__radio" name="tabs-group" id="tab2">
+          <input type="radio" class="tabs__radio" name="tabs-group" id="tab2" />
           <label for="tab2" class="tabs__label">Amazon Instance</label>
           <div class="tabs__content">
             <table>
@@ -132,10 +155,5 @@
         </div>
       </div>
     </section>
-    <script>var exports = {};</script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" src="AudioBlock.js"></script>
   </body>
 </html>

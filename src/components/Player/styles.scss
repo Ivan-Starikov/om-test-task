@@ -1,0 +1,125 @@
+.player {
+  position: relative;
+  max-width: 620px;
+  padding: 20px;
+  background-color: var(--gray);
+
+  &__back-button {
+    margin-bottom: 20px;
+    background-color: var(--light);
+  }
+
+  &__button {
+    background-color: var(--gray);
+  }
+
+  &__playback {
+    height: 2px;
+    width: 100%;
+    margin: 50px 0;
+  }
+
+  &__volume {
+    width: 100%;
+    height: 2px;
+    max-width: 252px;
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__duration {
+    margin-right: 36px;
+    color: var(--dark);
+    font-size: var(--font-size-12);
+    letter-spacing: -0.3px;
+  }
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+
+  &::-webkit-slider-runnable-track {
+    height: 2px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    width: 16px;
+    height: 12px;
+  }
+
+  &.player__playback::-webkit-slider-thumb {
+    background: var(--white);
+    border-radius: 6px;
+  }
+
+  &.player__volume::-webkit-slider-thumb {
+    background: var(--black);
+  }
+
+  &::-moz-range-track {
+    height: 2px;
+  }
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    width: 16px;
+    height: 12px;
+    border: 0;
+  }
+
+  &.player__playback::-moz-range-thumb {
+    background: var(--white);
+    border-radius: 6px;
+  }
+
+  &.player__volume::-moz-range-thumb {
+    background: var(--black);
+    border-radius: 0;
+  }
+}
+
+.loading {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.loading-bar {
+  position: relative;
+  height: 4px;
+  background-color: var(--gray);
+  overflow: hidden;
+}
+
+.loading-line {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  background: var(--white);
+  animation: loading 1.2s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
