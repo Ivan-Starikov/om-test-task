@@ -23,7 +23,7 @@ export const Form = ({ url, setUrl, setIsForm, isError, setIsError }) => {
           ref={inputRef}
           type='text'
           id='audio'
-          name='audio'
+          name='form-input'
           placeholder='https://'
           className={`form__input ${isError && 'error-input'}`}
           onChange={handleOnChangeInput}
