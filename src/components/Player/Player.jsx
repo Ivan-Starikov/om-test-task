@@ -4,7 +4,7 @@ import pause from '../../../public/assets/pause.svg'
 
 import './styles.scss'
 
-export const Player = ({ url, setIsForm }) => {
+export const Player = ({ url, setUrl, setIsForm }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [currentVolume, setCurrentVolume] = useState(0.3)
@@ -110,8 +110,8 @@ export const Player = ({ url, setIsForm }) => {
   }
 
   function handleTimeUpdate() {
-    if (audioRef.current.currentTime) {
-      setCurrentTime(audioRef.current.currentTime)
+    if (audioRef.current?.currentTime) {
+      setCurrentTime(audioRef.current?.currentTime)
     }
   }
 
@@ -140,6 +140,7 @@ export const Player = ({ url, setIsForm }) => {
   }
 
   function handleBack() {
+    setUrl('')
     setIsForm(true)
   }
 

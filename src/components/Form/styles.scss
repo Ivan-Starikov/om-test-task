@@ -1,4 +1,4 @@
-@import "../../global.scss";
+@import '../../main.scss';
 
 .form__wrapper {
   align-self: center;
@@ -20,11 +20,11 @@
   }
 
   &__input {
-    padding: 32px 16px;
+    padding: 32px 44px 32px 16px;
     width: 100%;
 
     @include for-mobile {
-      padding: 6px;
+      padding: 6px 31px 6px 6px;
       font-weight: var(--font-weight-light);
     }
   }
@@ -61,7 +61,7 @@
   transform: translateY(-50%);
 
   @include for-mobile {
-    right: 80px;
+    right: 70px;
   }
 }
 

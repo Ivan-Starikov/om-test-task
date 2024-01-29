@@ -1,12 +1,17 @@
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import submit from '../../../public/assets/submit.svg'
 import error from '../../../public/assets/error.svg'
 
 import './styles.scss'
 
-export const Form = ({ setUrl, setIsForm }) => {
+export const Form = ({ url, setUrl, setIsForm, isError, setIsError }) => {
   const inputRef = useRef(null)
-  const [isError, setIsError] = useState(false)
+
+  useEffect(() => {
+    if (url) {
+      validateAudioUrl(url)
+    }
+  }, [url])
 
   return (
     <form onSubmit={handleFormSubmit} className='form' name='audio-form'>
@@ -23,7 +28,7 @@ export const Form = ({ setUrl, setIsForm }) => {
           className={`form__input ${isError && 'error-input'}`}
           onChange={handleOnChangeInput}
         />
-        <button type='submit' className='form__submit'>
+        <button className='form__submit'>
           <img src={submit} alt='Submit url input' />
         </button>
         {isError && (
@@ -36,27 +41,42 @@ export const Form = ({ setUrl, setIsForm }) => {
     </form>
   )
 
-  function handleFormSubmit(event) {
+  async function handleFormSubmit(event) {
     event.preventDefault()
-
-    const isValid = validateInput()
+    const isValid = checkUrlTypo()
 
     if (isValid) {
-      setUrl(inputRef.current.value)
-      setIsForm(false)
+      setUrl(event.target[0].value)
+    } else {
+      setIsError(true)
     }
-
-    setIsError(!isValid)
   }
 
   function handleOnChangeInput() {
+    setUrl('')
     setIsError(false)
   }
 
-  function validateInput() {
+  function checkUrlTypo() {
     const regExp =
       /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/
 
     return regExp.test(inputRef.current.value)
+  }
+
+  async function validateAudioUrl(url) {
+    try {
+      const res = await fetch(url, {
+        method: 'HEAD',
+      })
+
+      if (res.ok && res.headers.get('content-type').startsWith('audio')) {
+        setIsForm(false)
+      } else {
+        setIsError(true)
+      }
+    } catch {
+      setIsError(true)
+    }
   }
 }
