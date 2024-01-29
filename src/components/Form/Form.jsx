@@ -15,14 +15,14 @@ export const Form = ({ url, setUrl, setIsForm, isError, setIsError }) => {
 
   return (
     <form onSubmit={handleFormSubmit} className='form' name='audio-form'>
-      <label htmlFor='audio' className='form__title'>
+      <label htmlFor='form-audio' className='form__title'>
         Insert the link
       </label>
       <div className='form__action'>
         <input
           ref={inputRef}
           type='text'
-          id='audio'
+          id='form-audio'
           name='form-input'
           placeholder='https://'
           className={`form__input ${isError && 'error-input'}`}
